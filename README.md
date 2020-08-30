@@ -1,4 +1,4 @@
-![Code Count](https://img.shields.io/github/languages/count/darren-behan/workout-tracker) ![Main Code Base](https://img.shields.io/github/languages/top/darren-behan/workout-tracker) ![License Badge](https://img.shields.io/badge/license-none-blue) ![Version Badge](https://img.shields.io/badge/version-1.0-red) ![Last Commit](https://img.shields.io/github/last-commit/darren-behan/workout-tracker) ![Open Issues](https://img.shields.io/github/issues-raw/darren-behan/workout-tracker) ![Repo Size](https://img.shields.io/github/repo-size/darren-behan/workout-tracker)
+![Code Count](https://img.shields.io/github/languages/count/darren-behan/workout-tracker) ![Main Code Base](https://img.shields.io/github/languages/top/darren-behan/workout-tracker) ![License Badge](https://img.shields.io/badge/license-mit-blue) ![Version Badge](https://img.shields.io/badge/version-1.0-red) ![Last Commit](https://img.shields.io/github/last-commit/darren-behan/workout-tracker) ![Open Issues](https://img.shields.io/github/issues-raw/darren-behan/workout-tracker) ![Repo Size](https://img.shields.io/github/repo-size/darren-behan/workout-tracker)
 
 # Welcome to my Workout Tracker 👋
 
@@ -29,7 +29,7 @@
 
 ## License
 
-🖋 ![License Badge](https://img.shields.io/badge/license-none-blue)
+🖋 ![License Badge](https://img.shields.io/badge/license-mit-blue)
 
 This app is  using an MIT license
 
