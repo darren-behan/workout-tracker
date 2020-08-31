@@ -1,6 +1,7 @@
 // Dependencies
 const express = require("express");
 const mongoose = require("mongoose");
+var path = require("path");
 
 // Requiring our models for syncing
 const db = require("./models");
