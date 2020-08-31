@@ -14,6 +14,36 @@ module.exports = function(app) {
       });
   });
 
+  // PUT route for adding/updating the exercise in the workout collection
+  app.put('/api/workouts/:id', async (req, res) => {
+    const id = req.params.id;
+    const data = req.body;
+    db.Workout.findById(id)
+      .then(dbWorkout => {
+        dbWorkout.exercises.push(data);
+        console.log(dbWorkout + " line 25");
+        return dbWorkout;
+      })
+      .then(dbWorkout => {
+        console.log(dbWorkout + " line 29");
+        db.Workout.findOneAndUpdate(
+          { _id: id },
+          { exercises: dbWorkout.exercises },
+          { new: true }
+        )
+          .then(dbWorkout => {
+            console.log(dbWorkout + " line 36");
+            res.json(dbWorkout);
+          })
+          .catch(err => {
+            res.json(err);
+          });
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
+
   // POST route for creating a workout
   app.post('/api/workouts', async ({body}, res) => {
     const workout = new db.Workout(body);
