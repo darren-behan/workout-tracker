@@ -25,4 +25,15 @@ module.exports = function(app) {
         console.log(err);
       });
   });
+
+  // GET route for workouts data to render on stats page
+  app.get('/api/workouts/range', async (req, res) => {
+    db.Workout.find({})
+      .then(dbWorkout => {
+        res.json(dbWorkout);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
 };
