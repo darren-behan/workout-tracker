@@ -1,18 +1,26 @@
+// Dependencies
 const express = require("express");
 const mongoose = require("mongoose");
 
+// Requiring our models for syncing
+const db = require("./models");
+
+// Sets up the Express App
+const app = express();
 const PORT = process.env.PORT || 3000;
 
-const db = require("./public");
-
-const app = express();
-
+// Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Static directory
 app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workouts", { useNewUrlParser: true });
+
+// Routes
+require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
