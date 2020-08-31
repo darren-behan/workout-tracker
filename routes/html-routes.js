@@ -11,8 +11,13 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
-  // index route loads exercise.html
+  // exercise route loads exercise.html
   app.get("/exercise", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/exercise.html"));
+  });
+
+  // stats route loads stats.html
+  app.get("/stats", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/stats.html"));
   });
 };
