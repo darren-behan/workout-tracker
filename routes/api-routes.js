@@ -16,23 +16,25 @@ module.exports = function(app) {
 
   // PUT route for adding/updating the exercise in the workout collection
   app.put('/api/workouts/:id', async (req, res) => {
+    // Store the id of the workout
     const id = req.params.id;
+    // Store the data from the db
     const data = req.body;
+    // Find the relevant Workout by it's id
     db.Workout.findById(id)
       .then(dbWorkout => {
+        // Then push the data as arrays to the exercises object and return it
         dbWorkout.exercises.push(data);
-        console.log(dbWorkout + " line 25");
         return dbWorkout;
       })
       .then(dbWorkout => {
-        console.log(dbWorkout + " line 29");
+        // Find the Workout and add the exercises to this - guide: https://mongoosejs.com/docs/tutorials/findoneandupdate.html
         db.Workout.findOneAndUpdate(
           { _id: id },
           { exercises: dbWorkout.exercises },
           { new: true }
         )
           .then(dbWorkout => {
-            console.log(dbWorkout + " line 36");
             res.json(dbWorkout);
           })
           .catch(err => {
@@ -46,13 +48,15 @@ module.exports = function(app) {
 
   // POST route for creating a workout
   app.post('/api/workouts', async ({body}, res) => {
+    // We "copy" the request body to not modify the original one
     const workout = new db.Workout(body);
+    // Create the Workout in the database
     db.Workout.create(workout)
       .then(dbWorkout => {
-        console.log(dbWorkout);
+        res.json(dbWorkout);
       })
       .catch(err => {
-        console.log(err);
+        res.json(err);
       });
   });
 
