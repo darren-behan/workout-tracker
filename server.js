@@ -3,9 +3,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 var path = require("path");
 
-// Requiring our models for syncing
-const db = require("./models");
-
 // Sets up the Express App
 const app = express();
 const PORT = process.env.PORT || 3000;
