@@ -1,7 +1,6 @@
 // Dependencies
 const express = require("express");
 const mongoose = require("mongoose");
-var path = require("path");
 
 // Sets up the Express App
 const app = express();
